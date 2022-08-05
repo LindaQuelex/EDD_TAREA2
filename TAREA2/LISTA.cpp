@@ -3,6 +3,8 @@
 #include <stdlib.h>
 using namespace std;
 
+//Tarea 2 EDD: Implementacion de lista y funcionalidades en C++
+
 //CREACIÓN DE NODO
 struct Nodo{
     int dato;
@@ -23,7 +25,6 @@ Nodo *lista=NULL;
 void menu();
 
 int main(){
-    //cout <<"Implementacion de lista y funcionalidades en C++\n";
     menu();
 
     getch();
@@ -40,12 +41,11 @@ void menu(){
     string curso_nodo;
     string estado_nodo;
     do{
-        cout<<"\t.:MENU:.\n";
+        cout<<"\t-----------------------------MENU-----------------------------\n";
         cout<<"1. Insertar elementos a la lista \n";
         cout<<"2. Mostrar los elementos de la lista\n";
         cout<<"3. Salir\n";
         cin >> option;
-
         switch (option){
             case 1: cout<<"Ingrese nombre:";
                     cin>>nombre_nodo;
@@ -61,20 +61,17 @@ void menu(){
                     cin>>curso_nodo;
                     cout<<"Ingrese estado:";
                     cin>>estado_nodo;
-                    
                     insertarLista(lista, nombre_nodo, apellido_nodo,  edad_nodo, direccion_nodo, carrera_nodo, curso_nodo, estado_nodo);
                     cout<<"\n";
                     system("pause");
                     break;
-
             case 2: mostrarLista(lista);
                     cout<<"\n";
                     system("pause");
                     break;
         }
-        // system("cls");
+        system("cls");
     }
-    
     while(option !=3);
 }
 
@@ -105,13 +102,16 @@ void insertarLista(Nodo *&lista,  string nombre, string apellido, int edad, stri
     nuevo_nodo->siguiente=aux1;
     cout <<"\tNombre: " << nombre <<"\t/Apellido: "<< apellido <<"\t/Edad: "<< edad <<"\t/Direccion: "<< direccion <<"\t/Carrera: "<< carrera <<"\t/Curso: "<< curso <<"\t/Estado: "<< estado << " /datos insertados a la lista correctamente\n";
 }
-
+//FUNCIÓN MOSTRAR
 void mostrarLista(Nodo *lista){
     Nodo *actual= new Nodo();
     actual=lista;
     while (actual != NULL){
-        cout<< actual->nombre_nodo << actual->apellido_nodo << actual->edad_nodo << actual->direccion_nodo << actual->carrera_nodo  << actual->estado_nodo <<"->";
+        cout<<"\tNombre: "<<actual->nombre_nodo <<"\t/Apellido: "<< actual->apellido_nodo <<"\t/Edad: "<< actual->edad_nodo <<"\t/Direccion: "<< actual->direccion_nodo <<"\t/Carrera: " << actual->carrera_nodo <<"\t/Curso: "<< actual->curso_nodo <<"\t/Estado: " << actual->estado_nodo <<"->\n";
         actual = actual -> siguiente;
     }
 }
+//FUNCIÓN MODIFICAR
+void modificarDatos(){
 
+}
